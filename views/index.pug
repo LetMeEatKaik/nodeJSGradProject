@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title Node.js with TailwindCSS, Express and Pug
+    link(href="./styles/style.css", rel="stylesheet")
+  body
+    h1.text-6xl Hello world!
+    p.m-64 My starter template!
+        // component
+    // I had fun with buttons :)
+    .flex-col.min-h-screen.h-full.w-full.bg-white.p-1
+      .flex.space-x-10.bg-gray-100.p-2.w-full.justify-center
+        button.min-w-auto.w-32.h-10.bg-red-300.p-2.rounded-xl.transition-colors.duration-50.ease-out.text-white.font-semibold(class='hover:bg-red-500 hover:animate-pulse')
+          | Danger
+        button.min-w-auto.w-32.h-10.bg-blue-300.p-2.rounded-xl.transition-colors.duration-50.ease-out.text-white.font-semibold(class='hover:bg-blue-500 hover:animate-pulse')
+          | Info
+        button.min-w-auto.w-32.h-10.bg-green-300.p-2.rounded-xl.transition-colors.duration-50.ease-out.text-white.font-semibold(class='hover:bg-green-500 hover:animate-pulse')
+          | OK
+      .flex.bg-gray-100.p-2.w-full.justify-center
+        button.min-w-auto.w-32.h-10.bg-red-300.p-2.rounded-l-xl.transition-colors.duration-50.ease-out.text-white.font-semibold(class='hover:bg-red-500 hover:animate-pulse')
+          | 1
+        button.min-w-auto.w-32.h-10.bg-blue-300.p-2.rounded-none.transition-colors.duration-50.ease-out.text-white.font-semibold(class='hover:bg-blue-500 hover:animate-pulse')
+          | &lt;
+        button.min-w-auto.w-32.h-10.bg-green-300.p-2.rounded-r-xl.transition-colors.duration-50.ease-out.text-white.font-semibold(class='hover:bg-green-500 hover:animate-pulse')
+          | 2
+      .flex.bg-gray-100.p-2.w-full.justify-center.space-x-10
+        button.min-w-auto.w-32.h-10.bg-red-300.p-2.rounded-t-xl.text-white.font-semibold.transition-transform.ease-in-out(class='hover:bg-red-500 hover:-translate-y-2')
+          | Just
+        button.min-w-auto.w-32.h-10.bg-blue-300.p-2.rounded-t-xl.text-white.font-semibold.transition-transform.ease-in-out(class='hover:bg-blue-500 hover:-translate-y-2')
+          | A
+        button.min-w-auto.w-32.h-10.bg-green-300.p-2.rounded-t-xl.text-white.font-semibold.transition-transform.ease-in-out(class='hover:bg-green-500 hover:-translate-y-2')
+          | Maul
+      .flex.bg-gray-100.p-2.w-full.justify-center.space-x-10
+        button.min-w-auto.w-32.h-10.bg-red-300.p-2.rounded-b-xl.text-white.font-semibold.transition-transform.ease-in-out(class='hover:bg-red-500 hover:translate-y-2')
+          | A
+        button.min-w-auto.w-32.h-10.bg-blue-300.p-2.rounded-b-xl.text-white.font-semibold.transition-transform.ease-in-out(class='hover:bg-blue-500 hover:translate-y-2')
+          | Reversed
+        button.min-w-auto.w-32.h-10.bg-green-300.p-2.rounded-b-xl.text-white.font-semibold.transition-transform.ease-in-out(class='hover:bg-green-500 hover:translate-y-2')
+          | Maul
+      .flex.bg-gray-100.p-2.w-full.justify-center.space-x-0
+        button.min-w-auto.w-32.h-10.bg-red-300.p-2.rounded-l-full.text-white.font-semibold.transition-all.duration-200.ease-in-out(class='hover:bg-red-500 hover:flex-grow')
+          | I
+        button.min-w-auto.w-32.h-10.bg-blue-300.p-2.rounded-none.text-white.font-semibold.transition-all.duration-200.ease-in-out(class='hover:bg-blue-500 hover:flex-grow')
+          | Can
+        button.min-w-auto.w-32.h-10.bg-green-300.p-2.rounded-r-full.text-white.font-semibold.transition-all.duration-200.ease-in-out(class='hover:bg-green-500 hover:flex-grow')
+          | Grow !
+      .flex.bg-gray-100.p-2.w-full.justify-center.space-x-10
+        button.min-w-auto.w-14.h-14.bg-orange-300.p-2.rounded-full.text-white.font-semibold.transition-rotation.duration-300.ease-in-out(class='hover:bg-orange-500 hover:rotate-45')
+          | You
+        button.min-w-auto.w-14.h-14.bg-blue-300.p-2.rounded-full.text-white.font-semibold.transition-rotation.duration-300.ease-in-out(class='hover:bg-blue-500 hover:rotate-90')
+          | Spin
+        button.min-w-auto.w-14.h-14.bg-green-300.p-2.rounded-full.text-white.font-semibold.transition-rotation.duration-300.ease-in-out(class='hover:bg-green-500 hover:-rotate-90')
+          | My
+        button.min-w-auto.w-14.h-14.bg-red-300.p-2.rounded-full.text-white.font-semibold.transition-rotation.duration-300.ease-in-out(class='hover:bg-red-500 hover:-rotate-45')
+          | Head
+      div
