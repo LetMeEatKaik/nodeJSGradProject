@@ -1,0 +1,60 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | I can do synchronous callbacks! A synchronous callback is a 'blocking' callback. See the cryptographic function code below:
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+          
+      // sources: https://riptutorial.com/node-js/example/27463/callback-functions?msclkid=b1cbd5a6b4d311eca9980a48f717be2b
+      // https://www.w3schools.com/nodejs/ref_crypto.asp?msclkid=30400851b4d411ec846985d42b7957f9
+
+      var http = require("http");
+      var crypto = require("crypto");
+      var port = 8081;
+      var showOnPage = "";
+
+      // a function that uses a callback named `callback` as a parameter
+      function synchonousCrypt(cb) {
+        var mykey = crypto.createCipher("aes-128-cbc", "password123");
+        var mystr = mykey.update("abc", "utf8", "hex");
+        mystr += mykey.final("hex");
+        console.log(mystr);
+        showOnPage = mystr;
+        callback(mystr);
+      }
+
+      //create a server object:
+      http
+        .createServer(function (req, res) {
+          console.log("Before synchonousCrypt call");
+          // calling a function and sending in a callback function as an argument.
+          synchonousCrypt(function (message) {
+            // message = mystr
+            console.log(message);
+          });
+          console.log("After synchonousCrypt call");
+
+          res.write("My Encrypted String is: " + showOnPage); //write a response to the client
+          res.end(); //end the response
+
+          console.log("running on port " + port);
+        })
+        .listen(port); //the server object listens on port 8080
+  
+  | the output of the code below is:  
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+          Before synchonousCrypt call
+          22880c23c09bfc68792ef11c8b20d77b
+          22880c23c09bfc68792ef11c8b20d77b
+          After synchonousCrypt call
+
+
+  | First we start with logging to the console: 'Before synchonousCrypt call'. Then the function 
+  mark synchonousCrypt 
+  | is called. An anonymous function is sent as an argument in the parameters named 'callback'. 'callback' returns the encrypted message 'abc' back to the parameter named message. This is then logged onto the console. 
+  | Within 'synchronousCrypt' we also update 'showOnPage', so that when the callback is completed, we've updated the response to the client.
+  | A synchronous call would be helpful for a cryptographic function (such as a login or message service). We'd want to first encrypt the material before proceeding for security reasons.
+  br
+  br 
+  | You can find a working version of this code here: 
+  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/synchronous-callback-1pghb7?file=/index.js', class='hover:text-blue-500') codesandbox cryotSynchronousCallback Example   

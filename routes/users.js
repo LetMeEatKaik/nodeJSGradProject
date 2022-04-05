@@ -9,6 +9,12 @@ router.get('/', (req, res, next)=>{
   });
 });
 
+router.get('/cards', (req, res, next)=>{
+  console.log("placceholder")
+  res.render('cardTailWind', {
+   });
+ });
+
 
 router.use(function(err, req, res, next){
   console.error(err.stack);

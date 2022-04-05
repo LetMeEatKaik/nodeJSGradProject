@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "alert": "^5.0.10",
     "autoprefixer": "^10.0.1",
     "express": "^4.17.1",
     "postcss": "^8.1.2",

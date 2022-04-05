@@ -1,0 +1,78 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | In this asynchronous callback, we use 
+  mark setTimeout()
+  |!{' '} to keep the function 
+  mark asynchronousCrypt()
+  |!{' '} running in the background:
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+      // sources: https://riptutorial.com/node-js/example/27463/callback-functions?msclkid=b1cbd5a6b4d311eca9980a48f717be2b
+      // https://www.w3schools.com/nodejs/ref_crypto.asp?msclkid=30400851b4d411ec846985d42b7957f9
+
+      var http = require("http");
+      var crypto = require("crypto");
+      var port = 8081;
+      var showOnPage = "";
+
+      // a function that uses a callback named `cb` as a parameter
+      function asynchronousCrypt(cb) {
+
+        setTimeout(function () {
+        var mykey = crypto.createCipher("aes-128-cbc", "password123");
+        var mystr = mykey.update("abc", "utf8", "hex");
+        mystr += mykey.final("hex");
+        console.log(mystr);
+        showOnPage = mystr;
+        cb(mystr);
+          }, 1000);
+      }
+
+      //create a server object:
+      http
+        .createServer(function (req, res) {
+          console.log("Before asynchonousCrypt call");
+          // calling a function and sending in a callback function as an argument.
+          synchonousCrypt(function (message) {
+            // message = mystr
+            console.log(message);
+          });
+          console.log("After asynchonousCrypt call");
+
+          res.write("My Encrypted String is: " + showOnPage); //write a response to the client
+          res.end(); //end the response
+
+          console.log("running on port " + port);
+        })
+        .listen(port); //the server object listens on port 8080
+
+
+
+  br
+  br
+  |Below is the output for the code above: 
+  br
+  textarea(rows="3" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+      Before synchonousCrypt call
+      After synchonousCrypt call
+      22880c23c09bfc68792ef11c8b20d77b
+  br
+  br
+  | In the above code, asynchronousCrypt gets logged to the console. Then !{' '}
+  mark asynchronousCrypt
+  |!{' '} is called and it sends an anonymous function as an argument for !{' '}
+  mark callback
+  |!{' '} which is then executed and sends an argument that is the encrypted message back to !{' '}
+  mark asynchronousCrypt
+  |!{'. '} 
+  br
+  br
+  |While this happening, 
+  mark setTimeout()
+  |!{' '} runs and the compiler continues back the outer function to console log 'After asycnronous...' Additionally inside the function the message 'abc' is encrypted. Once returned this is displayed back to the user/client web browser. 
+  | An asynchronous callback such as this could be very helpful to keep engaging a user as something large is rendering in the background. Interesting note that the page renders before the crypotograph script completes. 
+  br
+  br
+  | You can find a working version of this code here: 
+  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/synchronous-callback-1pghb7?file=/index.js', class='hover:text-blue-500') codesandbox asynchronous callback example   

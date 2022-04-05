@@ -1,0 +1,116 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | Node has an asynchronous versions of the 
+  mark fs 
+  |!{' '}module. This module reads and writes asynchronously. As the application loads a file it will continue to run and follow additional commands (so it's non blocking).
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+          
+      const http = require("http");
+      const url = require("url");
+      const path = require("path");
+      const fs = require("fs");
+
+      // create a server in node
+      const server = http.createServer((req, res) => {
+        // get time, from https://stackoverflow.com/questions/10617070/how-do-i-measure-the-execution-time-of-javascript-code-with-callbacks?msclkid=34d6339db34311ecbc39bf79f309c37c
+        var start = process.hrtime();
+
+        // set a timer to understand how long this will take
+        var elapsed_time = function (note) {
+          var precision = 3; // 3 decimal places
+          var elapsed = process.hrtime(start)[1] / 1000000; // divide by a million to get nano to milli
+          console.log(
+            process.hrtime(start)[0] +
+              " s, " +
+              elapsed.toFixed(precision) +
+              " ms - " +
+              note
+          ); // print message + time
+          var old =
+            process.hrtime(start)[0] +
+            " s, " +
+            elapsed.toFixed(precision) +
+            " ms - " +
+            note;
+          start = process.hrtime(); // reset the timer
+          return old;
+        };
+
+        console.log(req.url);
+
+        // parse the URL into its component parts
+        const parsedUrl = url.parse(req.url, true);
+        console.log(parsedUrl);
+        // extract the pathname and query properties
+        const { pathname, query } = parsedUrl;
+
+        // output absolute path info
+        console.log("__dirname is %s", __dirname);
+        console.log("cwd is %s", process.cwd());
+
+        // Create an absolute path to the requested file.
+        // Assume the server was started from the webroot
+        const absolute_path_to_file = path.join(process.cwd(), pathname);
+        console.log("absolute_path_to_file is %s", absolute_path_to_file);
+
+        console.time("asynch timer started");
+        elapsed_time("start fs()");
+
+        // read a file and display to client
+        fs.readFile(absolute_path_to_file, "binary", (err, data) => {
+          if (err) {
+            console.log(err);
+            if (err.code == "ENOENT") {
+              // file does not exist - we should return a 404 status code
+              res.writeHead(404);
+              res.end("404: File Not Found");
+            } else if (err.code == "EISDIR") {
+              // file not present, so let's read directory and display instead!
+              fs.readdir(absolute_path_to_file, (err, files) => {
+                if (err) {
+                  res.writeHead(500);
+                  res.end("Server Error 500");
+                }
+                console.log(files);
+                let s = "<b>Directory Listing for ASynch</b><br>";
+                files.forEach((i) => {
+                  s += i + "<br>";
+                });
+                res.writeHead(200);
+                res.end(s + "<br>" + elapsed_time("end send_fs()"), "utf8");
+                console.timeEnd("asynch timer started");
+              });
+            }
+          } else {
+            res.writeHead(200);
+            res.end(data, "binary", () => {
+              console.log("file delivered: " + pathname);
+            });
+          }
+        });
+      });
+
+      var port = 7001;
+      server.listen(port, () => {
+        console.log("Listening on " + port);
+      });
+
+  br
+  br
+  | The code above is adapted from NodeJS HES Class. We are exploring the use of the node module: 
+  br
+  br
+  mark 
+    |fs.readfile
+  | !{' '}and 
+  mark 
+    |fs.readdir
+  br
+  br
+  | By simply removing 'Sync', we create asynchronous versions of these processes in node.  We are creating a node server that reads an inputted file. If there is no immediate file to read, we instead respond to the client with what's inside the directory. 
+  br
+  br 
+  | You can find a working version of this code here: 
+  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/asynch-file-read-slti6k?file=/index.js:0-2904', class='hover:text-blue-500') codesandbox readfile non sync example  
