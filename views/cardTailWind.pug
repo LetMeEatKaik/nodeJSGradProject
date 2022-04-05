@@ -1,0 +1,42 @@
+link(href='https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css', rel='stylesheet')
+header.p-4.shadow-sm
+  .inline-block.text-lg
+    h1 Header
+  .inline-block.top-auto.text-teal-800.float-right.rounded-full.mx-1.px-2
+    a.align-middle(href='#') More
+  .inline-block.top-auto.text-teal-800.float-right.rounded-full.mx-1.px-2
+    a.align-middle(href='#') About
+  .inline-block.top-auto.text-teal-800.float-right.rounded-full.px-2.bg-teal-100
+    a.align-middle(href='#') Home
+.container.mt-4.mx-auto
+  .grid.grid-cols-1(class='sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2')
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | Sync fs
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/sync_fs.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | ASync fs
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/async_fs.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | Sync Callbacks!
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/sync_callback.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | ASync Callbacks!
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/async_callback.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | ASync fs
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/async_fs.pug 
