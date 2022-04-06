@@ -1,0 +1,85 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | In this asynchronous callback, we use 
+  mark setTimeout()
+  |!{' '} to keep the function 
+  mark asynchronousCrypt()
+  |!{' '} running in the background:
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+        <!DOCTYPE html>
+        <!-- source: https://www.w3schools.com/Js/js_promise.asp, how does a Prromise work? -->
+        <html>
+        <body>
+        <h3>Asynchronous Promise</h3>
+        <p id="stars"></p>
+        <p style='color:red;' id="y"></p>
+        <script>
+        y = 'I am done with the promise!';
+        function display(some) {
+          document.getElementById("stars").innerHTML = some;
+        }
+        function display2(some) {
+          document.getElementById("y").innerHTML = some;
+        }
+
+        // issue a new promise
+        let myPromise = new Promise(function(Resolve, Reject) {
+          let x = '';
+          let y = 2;
+          for (i = 0; i <= 10; i ++){
+            for(j = 0; j <= i; j++){
+            x = x + '**';
+            }
+            x= x+'\n';
+          }
+
+          // two possiblilities
+          if (x) {
+            Resolve(x);
+          } else {
+            Reject("Error");
+          }
+        });
+
+        // once promise is resolved return this
+        myPromise.then(
+          function(x) {display(x);},
+          function(error) {display(error);}
+        );
+
+        /* function(`I'm done!`} {display(`I'm done!`)} */
+        display2(y)
+        </script>
+
+        </body>
+        </html>
+
+
+
+
+  br
+  br
+  |Below is the output for the code above: 
+  br
+  script(async='', src='//jsfiddle.net/bakukai/mv7431gr/30/embed/result/')
+  br
+  br
+  | In the above code, asynchronousCrypt gets logged to the console. Then !{' '}
+  mark asynchronousCrypt
+  |!{' '} is called and it sends an anonymous function as an argument for !{' '}
+  mark callback
+  |!{' '} which is then executed and sends an argument that is the encrypted message back to !{' '}
+  mark asynchronousCrypt
+  |!{'. '} 
+  br
+  br
+  |While this happening, 
+  mark setTimeout()
+  |!{' '} runs and the compiler continues back the outer function to console log 'After asycnronous...' Additionally inside the function the message 'abc' is encrypted. Once returned this is displayed back to the user/client web browser. 
+  | An asynchronous callback such as this could be very helpful to keep engaging a user as something large is rendering in the background. Interesting note that the page renders before the crypotograph script completes. 
+  br
+  br
+  | You can find a working version of this code here: 
+  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/synchronous-callback-1pghb7?file=/index.js', class='hover:text-blue-500') codesandbox asynchronous callback example   
