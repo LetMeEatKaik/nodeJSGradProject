@@ -2,11 +2,8 @@ script.
   hljs.initHighlightingOnLoad();
 container
  p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
-  | In this asynchronous callback, we use 
-  mark setTimeout()
-  |!{' '} to keep the function 
-  mark asynchronousCrypt()
-  |!{' '} running in the background:
+  | I have the ability to run a PROMISE! This allows me to run asynchronously. I run some function, A, and then can go on with my life, while A runs in the background as a Promise. Once's it's done the web service returns something, we're notified and we can use the output. 
+  | Let's look at an example:
   textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
         <!DOCTYPE html>
         <!-- source: https://www.w3schools.com/Js/js_promise.asp, how does a Prromise work? -->
@@ -66,20 +63,12 @@ container
   script(async='', src='//jsfiddle.net/bakukai/mv7431gr/30/embed/result/')
   br
   br
-  | In the above code, asynchronousCrypt gets logged to the console. Then !{' '}
-  mark asynchronousCrypt
-  |!{' '} is called and it sends an anonymous function as an argument for !{' '}
-  mark callback
-  |!{' '} which is then executed and sends an argument that is the encrypted message back to !{' '}
-  mark asynchronousCrypt
-  |!{'. '} 
+  | In the above code, we create a new Promise. The Promise takes two parameters, Resolve and Reject. This is called:
+  mark myPromise
+  |!{'.'} This is either rejected resulted in an error, aka, 'Reject' or success 'Resolve.' This is activated in: 
   br
   br
-  |While this happening, 
-  mark setTimeout()
-  |!{' '} runs and the compiler continues back the outer function to console log 'After asycnronous...' Additionally inside the function the message 'abc' is encrypted. Once returned this is displayed back to the user/client web browser. 
-  | An asynchronous callback such as this could be very helpful to keep engaging a user as something large is rendering in the background. Interesting note that the page renders before the crypotograph script completes. 
+  mark myPromise.then(...)
   br
   br
-  | You can find a working version of this code here: 
-  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/synchronous-callback-1pghb7?file=/index.js', class='hover:text-blue-500') codesandbox asynchronous callback example   
+  | !{' '} The .then will choose what to call depending on the Promise's success or failure.

@@ -53,6 +53,7 @@ container
   br
   |Below is the output for the code above: 
   br
+  br
   textarea(rows="3" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
       Before synchonousCrypt call
       After synchonousCrypt call
@@ -65,14 +66,13 @@ container
   mark callback
   |!{' '} which is then executed and sends an argument that is the encrypted message back to !{' '}
   mark asynchronousCrypt
-  |!{'. '} 
   br
   br
-  |While this happening, 
+  |!{'. '} While this happening, 
   mark setTimeout()
   |!{' '} runs and the compiler continues back the outer function to console log 'After asycnronous...' Additionally inside the function the message 'abc' is encrypted. Once returned this is displayed back to the user/client web browser. 
   | An asynchronous callback such as this could be very helpful to keep engaging a user as something large is rendering in the background. Interesting note that the page renders before the crypotograph script completes. 
   br
   br
   | You can find a working version of this code here: 
-  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/synchronous-callback-1pghb7?file=/index.js', class='hover:text-blue-500') codesandbox asynchronous callback example   
+  a.text-blue-400.transition.duration-300.ease-in-out.mb-4(href='https://codesandbox.io/s/asynchronous-callback-1pghb7?file=/index.js', class='hover:text-blue-500') codesandbox asynchronous callback example   
