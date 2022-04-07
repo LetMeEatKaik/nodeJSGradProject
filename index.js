@@ -16,6 +16,6 @@ app.get('/', (req, res) => {
 
 app.use('/users', users);
 
-const server = app.listen(3000, () => {
+const server = app.listen(3002, () => {
     console.log(`The application started on port ${server.address().port}`);
 });

@@ -2,7 +2,7 @@ script.
   hljs.initHighlightingOnLoad();
 container
  p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
-  | Node has synchronous versions of the 
+  | I can do anything ASync can do. Check this out! Node has synchronous versions of the 
   mark fs
   |!{' '}module. This module reads and writes synchronously. This means that as I read files, I block all other processes, and the processing waits until the file reading is done until it unblocks and allows the next process to run. This might be advantageous if the file being read is large, and the rest of the application can only work once the file reading is done (perhaps a online photo editing app such as photopea.com)
   textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
