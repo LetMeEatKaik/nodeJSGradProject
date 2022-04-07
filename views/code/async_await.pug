@@ -1,0 +1,47 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | In this asynchronous await, we use 'async/await' as a more efficient syntax for promises. 
+  mark asychJS() 
+  |!{' '} is an asynchronous function that creates a new Promise called
+  mark newPromis
+  |!{' '} The code is shown below:
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+                      <!DOCTYPE html>  
+          <!-- source https://www.javatpoint.com/javascript-async-and-await#:~:text=JavaScript%20Await%20function%20is%20used%20to%20wait%20for,action%20to%20complete%20before%20continuing%20with%20the%20feature. -->
+          <html>  
+          <head>  
+              <meta charset="utf-8">  
+          <title>JavaScript Await</title>  
+          </head>  
+          <body>  
+              <h2>JavaScript Await</h2>  
+              <h3> Show Euler's Number </h3>
+                <p id="main"></p>  
+          <script>  
+          async function asychJS() {  
+            let newPromise = new Promise(function(resolve, error) {  
+              setTimeout(function() { resolve(Math.sqrt(2)); }, 2000);  
+            });  
+            document.getElementById("main").innerHTML = await newPromise;  
+          }  
+          asychJS();  
+          </script>  
+          </body>  
+          </html>  
+
+  br
+  br
+  |Below is the output for the code above: 
+  br
+  br
+  script(async='', src='//jsfiddle.net/bakukai/n0yfu8b2/8/embed/result/')
+
+  br
+  br
+  | In the above code, 
+  mark newPromise 
+  | !{' '} settles once 
+  mark await newPromise 
+  |!{' '} recieves the result (the Euler number). This is then displayed in the HTML.  

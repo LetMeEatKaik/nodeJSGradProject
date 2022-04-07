@@ -1,0 +1,31 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | In this synchronous example I calculate Eulers number directly! Then I display it in HTML.
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+            <!DOCTYPE html>  
+        <!-- source https://www.javatpoint.com/javascript-async-and-await#:~:text=JavaScript%20Await%20function%20is%20used%20to%20wait%20for,action%20to%20complete%20before%20continuing%20with%20the%20feature. -->
+        <html>  
+        <head>  
+            <meta charset="utf-8">  
+        <title>JavaScript Await</title>  
+        </head>  
+        <body>  
+            <h2>JavaScript Sync</h2>  
+            <h3> Show Euler's Number </h3>
+              <p id="main"></p>  
+        <script>  
+
+
+          document.getElementById("main").innerHTML = Math.sqrt(2)
+
+        </script>  
+        </body>  
+        </html>  
+
+  br
+  br
+  |A simple script on the HTML page calls the 
+  mark Math.sqrt()
+  |!{' '} javascript function.

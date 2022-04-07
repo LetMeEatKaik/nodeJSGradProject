@@ -19,6 +19,18 @@ header.p-4.shadow-sm
     .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
       .m-3
         h2.text-lg.mb-2
+          | Sync Simple
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/sync_simple.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | ASync Simple
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/async_simple.pug  
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
           | Sync fs
           span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
           include code/sync_fs.pug 
@@ -43,7 +55,7 @@ header.p-4.shadow-sm
     .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
       .m-3
         h2.text-lg.mb-2
-          | Sync (no alternative for await)
+          | Sync (picture detour)!
           span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
           include code/syncPicture.pug 
     .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
@@ -52,3 +64,15 @@ header.p-4.shadow-sm
           | ASync promise
           span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
           include code/async_promise.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | Sync without await
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/sync_NON_await.pug 
+    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
+      .m-3
+        h2.text-lg.mb-2
+          | ASync promise
+          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Tag
+          include code/async_await.pug 

@@ -1,0 +1,31 @@
+script.
+  hljs.initHighlightingOnLoad();
+container
+ p.font-light.font-mono.text-sm.text-gray-700.transition-all.duration-200(class='hover:text-gray-900') 
+  | In this asynchronous example I use a simple callback using 
+  mark setTimeout().
+  | !{' '} See how my output is a bit disordered compared to Synch!
+  textarea(rows="10" cols="60" disabled="true" style='background-color:ghostwhite; margin-top:10px').
+                      <script>
+            document.write("I am ASynch");
+            document.write("<br>");
+            document.write("I like to multitask...a million thing at once");
+            document.write("<br>");
+            document.write("Some people say that's a problem. For example I will figure out 97x1000 while I do some other things!");
+            setTimeout(() => {
+              var number = 97*1000; 
+        document.body.appendChild(document.createElement('p'));
+        document.querySelector("body p:last-child").id = "jstext";
+        document.querySelector("#jstext").innerHTML = number;
+            }, 5000);
+          
+            document.write("<br>");
+            document.write("So I'm in a race with my arch nemisis and collaborator Synch");
+            document.write("<br>");
+                document.write("Let's see who gets to the finish line first!...Oh and the answer to 97x1000 is");
+        </script>
+  br
+  br
+  | You might notice that the code does not get rendered in exact order in the HTML. See the HTML render below:
+  iframe(width='100%', height='250', src='//jsfiddle.net/bakukai/mc9qoaL4/20/embedded/result/', allowfullscreen='allowfullscreen', allowpaymentrequest='', frameborder='0')
+
