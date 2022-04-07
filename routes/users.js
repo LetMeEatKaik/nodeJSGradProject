@@ -15,6 +15,18 @@ router.get('/cards', (req, res, next)=>{
    });
  });
 
+ router.get('/about', (req, res, next)=>{
+  console.log("placceholder")
+  res.render('about', {
+   });
+ });
+
+ router.get('/more', (req, res, next)=>{
+  console.log("placceholder")
+  res.render('more', {
+   });
+ });
+
 
 router.use(function(err, req, res, next){
   console.error(err.stack);
