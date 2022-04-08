@@ -16,8 +16,8 @@ container
       var port = 8081;
       var showOnPage = "";
 
-      // a function that uses a callback named `cb` as a parameter
-      function asynchronousCrypt(cb) {
+      // a function that uses a callback named `callback` as a parameter
+      function asynchronousCrypt(callback) {
 
         setTimeout(function () {
         var mykey = crypto.createCipher("aes-128-cbc", "password123");
@@ -25,7 +25,7 @@ container
         mystr += mykey.final("hex");
         console.log(mystr);
         showOnPage = mystr;
-        cb(mystr);
+        callback(mystr);
           }, 1000);
       }
 

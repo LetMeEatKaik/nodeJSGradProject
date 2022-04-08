@@ -9,70 +9,17 @@ header.p-4.shadow-sm
   .inline-block.top-auto.text-teal-800.float-right.rounded-full.px-2
     a.align-middle(href='users/cards') Home
 .container.mt-4.mx-auto
-  .-m-2.text-center
-    .p-2
-        .inline-flex.items-center.bg-white.leading-none.text-pink-600.rounded-full.p-2.shadow.text-teal.text-sm
-        span.inline-flex.bg-pink-600.text-white.rounded.h-6.px-3.justify-center.items-center Ready. Set. Go!
-        span.inline-flex.px-4 Who will win the epic race to the finish?
-
-  .grid.grid-cols-1(class='sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2')
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | Sync Simple
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Simple
-          include code/sync_simple.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | ASync Simple
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Simple
-          include code/async_simple.pug  
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | Sync fs
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse File System
-          include code/sync_fs.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | ASync fs
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse File Systems
-          include code/async_fs.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | Sync Callbacks!
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse CallBacks
-          include code/sync_callback.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | ASync Callbacks!
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse CallBacks
-          include code/async_callback.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | Sync (picture detour)!
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Promises
-          include code/syncPicture.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | ASync promise
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Promises
-          include code/async_promise.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | Sync without await
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse aAait
-          include code/sync_NON_await.pug 
-    .card.m-10.cursor-pointer.border.border-gray-400.rounded-lg.transform.transition-all.duration-200(class='hover:shadow-md hover:border-opacity-0 hover:-translate-y-1')
-      .m-3
-        h2.text-lg.mb-2
-          | ASync promise
-          span.text-sm.text-teal-800.font-mono.bg-teal-100.inline.rounded-full.px-2.align-top.float-right.animate-pulse Await
-          include code/async_await.pug 
+  .max-w-sm.rounded.overflow-hidden.shadow-lg
+  img.w-full(src='https://th.bing.com/th/id/OIP.AFQfqnGDX3YF5h492MQxcgHaEM?pid=ImgDet&rs=1', alt='Tortoise and the Hare')
+  .px-6.py-4
+    .font-bold.text-xl.mb-2 The Coldest Sunset
+    p.text-gray-700.text-base
+      | In this project for Harvard Extension School's Node JS class, I riff on the classic "The Tortoise and the Hare."" The aim of this project is to demonstrate some of the unique ways synchronous and asynchronous JavaScript compare.
+      | In doing this project it's clear that both types of executions have unique advantages. They should be used on an as needed basis rather than thinking that one process is better than the other.
+      br
+      br
+      | Image source: https://th.bing.com/th/id/OIP.AFQfqnGDX3YF5h492MQxcgHaEM?pid=ImgDet&rs=1
+  .px-6.pt-4.pb-2
+    span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 #photography
+    span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 #travel
+    span.inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700.mr-2.mb-2 #winter
