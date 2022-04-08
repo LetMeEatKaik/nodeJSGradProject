@@ -5,7 +5,7 @@ var app = express();
 
 router.get('/', (req, res, next)=>{
  console.log("placceholder")
- res.render('addJSFiddle', {
+ res.render('cardTailWind', {
   });
 });
 
